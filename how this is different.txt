@@ -1,0 +1,4 @@
+First get the camera up and running as per the requirement
+
+Then embed the functionality with regular checks (The camera and the behaviour of the application)
+

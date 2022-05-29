@@ -1,0 +1,13 @@
+pip==22.1.1
+pyzbar==0.1.8
+streamlit==1.9.2
+pymongo==4.1.1
+bcrypt==3.2.2
+pillow==9.1.1
+pandas==1.4.2
+streamlit-option-menu==0.3.2
+cryptography==37.0.2
+typing-extensions==4.2.0
+dnspython==2.2.1
+streamlit-aggrid==0.2.3.post2
+opencv-python==4.5.5.64
