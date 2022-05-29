@@ -6,7 +6,9 @@ This page needs authentication
 
 import streamlit as st
 from pymongo import *
-cluster = MongoClient(f"mongodb+srv://VishnuNad:{psd}@cluster01.0kzr6.mongodb.net/test")
+usn = st.secrets["db_username"]
+pwd = st.secrets["db_password"]
+cluster = MongoClient(f"mongodb+srv://{usn}:{pwd}@cluster01.0kzr6.mongodb.net/?retryWrites=true&w=majority")
 
 db = cluster["test_TechSpace"]
 
