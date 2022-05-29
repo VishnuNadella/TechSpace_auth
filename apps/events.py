@@ -26,13 +26,11 @@ def check(selected_event = None, id = None):
     
     mapping = {"keynote speaker session 1": "keynote1", "keynote speaker session 2": "keynote2", "Stand Up Comedy" : "standup", "Hackathon" : "hackathon", "Internship Fair" : "internship", "Workshop 1" : "workshop1", "Workshop 2" : "workshop2"}
     attend_mapping = {"keynote speaker session 1": "attendk1", "keynote speaker session 2": "attendk2", "Stand Up Comedy" : "attendsu", "Hackathon" : "attendhtn", "Internship Fair" : "attendis", "Workshop 1" : "attendw1", "Workshop 2" : "attendw2"}
-    st.info(req)
     if len(req) != 0 and req != "Nothing":
         nm = req["name"]
         req = req["events"][0]
         if req[mapping[selected_event]] != False: # paid or not
             if req[attend_mapping[selected_event]] == False: # present or not
-                print(attend_mapping[selected_event]) 
                 nd = attend_mapping[selected_event]
                 collection.update_one({"dum_id" : id }, {"$set" : {f"events.0.{nd}" : True}})
                 st.success(f"Welcome {nm}, Enjoy the Event") 
@@ -48,7 +46,6 @@ def decoder(image):
     qrCode = decode(image) #decoded QR code
     for obj in qrCode:
         data = obj.data.decode("utf-8")
-        st.info(data)
         return data
 
 def capture():
@@ -67,7 +64,6 @@ def app():
     select_event = st.selectbox("Select Event", ["Select an Event", "keynote speaker session 1", "keynote speaker session 2", "Stand Up Comedy", "Hackathon", "Internship Fair", "Workshop 1", "Workshop 2"])
     if select_event != "Select an Event":
         res = capture()
-        st.info(res)
         check(selected_event = select_event, id = res)
     elif select_event == "Select an Event":
         st.error("Please Select an Event")
