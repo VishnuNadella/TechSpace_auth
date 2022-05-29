@@ -88,14 +88,15 @@ def app():
     st.title("QR Code Scanner")
     st.text("Scan the person's QR code")   
     cap1 = capture()
-    cap_id = cap1["id"]
-    cap_dup = cap1["dup"]
-    if cap1 == None:
-        st.error("Either Invalid QR code or Scan it again")
-    elif cap1:
-        nm = check(cap_id)
-        if nm != "PAE" and nm != "UDE":
-            cap2 = cap_dup
-            collection.update_one({"id" : cap_id }, {"$set" : {f"dum_id" : cap2}}) # Replace True with ID card id
+    if cap1 != None:
+        cap_id = cap1["id"]
+        cap_dup = cap1["dup"]
+        if cap1 == None:
+            st.error("Either Invalid QR code or Scan it again")
+        elif cap1:
+            nm = check(cap_id)
+            if nm != "PAE" and nm != "UDE":
+                cap2 = cap_dup
+                collection.update_one({"id" : cap_id }, {"$set" : {f"dum_id" : cap2}}) # Replace True with ID card id
 
-            st.success(f"Welcome {nm}")
+                st.success(f"Welcome {nm}")
