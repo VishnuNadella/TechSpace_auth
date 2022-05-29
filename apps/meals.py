@@ -10,6 +10,37 @@ usn = st.secrets["db_username"]
 pwd = st.secrets["db_password"]
 cluster = MongoClient(f"mongodb+srv://{usn}:{pwd}@cluster01.0kzr6.mongodb.net/?retryWrites=true&w=majority")
 
+
+db = cluster["test_TechSpace"]
+collection = db["People"]
+
+
+def mark(id):
+    per = collection.find({"dum_id": id})
+    req = None
+    for i in per:
+        req = i
+    if req != None:
+        mls = req["meals"]
+        cnt = 5
+        for i in range(1, 6):
+            stri = f"meal{i}"
+            chk = mls[stri]
+            cnt -= 1
+            if chk == False:
+                collection.update_one({"id" : id }, {"$set" : {f"meals.{stri}" : True}})
+                st.success(f"Scan Complete! More {cnt} are left.")
+                break
+        else:
+            st.error("You have exhausted all your coupons")
+    else:
+        print("req is None")
+
+
+
+
+
+
 def decoder(image):
     qrCode = decode(image) #decoded QR code
     for obj in qrCode:
