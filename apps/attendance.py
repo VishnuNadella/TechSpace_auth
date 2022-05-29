@@ -94,7 +94,7 @@ def app():
     cap1 = capture()
     if cap1 != None:
         cap_id = cap1["id"]
-        cap_dup = cap1["dup"]
+        cap_dup = cap1["dum"]
         if cap1 == None:
             st.error("Either Invalid QR code or Scan it again")
         elif cap1:
