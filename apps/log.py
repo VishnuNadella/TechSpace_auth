@@ -6,11 +6,6 @@ This page needs authentication
 
 import streamlit as st
 from pymongo import *
-
-
-# cluster = MongoClient("localhost:27017")
-from . import cred
-psd = cred.connect()
 cluster = MongoClient(f"mongodb+srv://VishnuNad:{psd}@cluster01.0kzr6.mongodb.net/test")
 
 db = cluster["test_TechSpace"]
