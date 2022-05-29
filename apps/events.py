@@ -14,7 +14,6 @@ collection = db["People"]
 
 
 def check(selected_event = None, id = None):
-    # id = "IARE0001" or id
 
     per = collection.find({"dum_id": id})
 
@@ -25,7 +24,6 @@ def check(selected_event = None, id = None):
     else:
         req = "Nothing"
     
-    # print(nm)
     mapping = {"keynote speaker session 1": "keynote1", "keynote speaker session 2": "keynote2", "Stand Up Comedy" : "standup", "Hackathon" : "hackathon", "Internship Fair" : "internship", "Workshop 1" : "workshop1", "Workshop 2" : "workshop2"}
     attend_mapping = {"keynote speaker session 1": "attendk1", "keynote speaker session 2": "attendk2", "Stand Up Comedy" : "attendsu", "Hackathon" : "attendhtn", "Internship Fair" : "attendis", "Workshop 1" : "attendw1", "Workshop 2" : "attendw2"}
     st.info(req)
