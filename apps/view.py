@@ -11,10 +11,6 @@ import pandas as pd
 from st_aggrid import AgGrid, GridUpdateMode
 from st_aggrid.grid_options_builder import GridOptionsBuilder
 
-
-# cluster = MongoClient("localhost:27017")
-from . import cred
-psd = cred.connect()
 cluster = MongoClient(f"mongodb+srv://VishnuNad:{psd}@cluster01.0kzr6.mongodb.net/test")
 
 db = cluster["test_TechSpace"]
