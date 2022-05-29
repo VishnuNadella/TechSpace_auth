@@ -4,7 +4,7 @@ Main navigating page for the event co-ordinators
 
 import streamlit as st
 from Main import router
-from apps import home, attendance, log, meals, events, view, auth
+from apps import home, cam, attendance, log, meals, events, view, auth
 import bcrypt as bc
 import json
 data = None
@@ -34,6 +34,7 @@ st.sidebar.markdown(
 
 
 app.add_app("home", home.app)
+app.add_app("Cam", cam.app)
 app.add_app("attendance", attendance.app)
 app.add_app("meals", meals.app)
 app.add_app("events", events.app)
