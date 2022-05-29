@@ -22,13 +22,14 @@ def mark(id):
         req = i
     if req != None:
         mls = req["meals"]
+        st.info("Meals", mls)
         cnt = 5
         for i in range(1, 6):
             stri = f"meal{i}"
             chk = mls[stri]
             cnt -= 1
             if chk == False:
-                collection.update_one({"id" : id }, {"$set" : {f"meals.{stri}" : True}})
+                collection.update_one({"dum_id" : id }, {"$set" : {f"meals.{stri}" : True}})
                 st.success(f"Scan Complete! More {cnt} are left.")
                 break
         else:
