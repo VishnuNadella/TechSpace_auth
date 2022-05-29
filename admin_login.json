@@ -1,0 +1,19 @@
+[
+    {   
+        "Name": "Abhishek",  
+    "Password": "$2b$09$jlNhtTEa9R9uEqysl76rIuoGbtoCgSZaO4dH6JvFKNtMPxijLIjrG"
+    },
+    {  
+        "Name": "Hemanth",
+        "Password": "$2b$09$H1MgwYbJfha4hXU9risMJO/Toy0egtYCx3VSTj7PAm1waxFoODozq"
+    },
+
+    {
+        "Name": "Vishnu",
+        "Password": "$2b$09$y.HZjUaBzCmF8ychcFa9w.tu31zahNvS4bgweJ5IFwIruYbpVBvl."
+    },
+    {
+        "Name": "VishnuNad",
+        "Password": "Vishnu%401234_12JoRJ"
+    }
+]
