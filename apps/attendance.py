@@ -42,36 +42,28 @@ def decoder(image):
     for obj in qrCode:
         data = obj.data.decode("utf-8")
         if len(data) > 0 and "dup" not in data:
-            print("Bar code", qrCode)
             st.success("Attendance allocated")
             sleep(5)
             return data
         elif "dup" in data:
-            print("dup", data)
             st.success("ID card has been successfully allocated")
             sleep(5)
             return data
 
 def capture():
-    st.info("Scanning...")
     message = st.empty()
-
     # Camera Input Setup
     startcam = st.camera_input('Scan QR Code')
 
     if startcam:
-        st.info("Inside capture")
         img = Image.open(startcam)
         data = decoder(img)
-        st.info(data)
         if "id" not in st.session_state:
             st.session_state["id"] = None
         if "dum" not in st.session_state:
             st.session_state["dum"] = None
-        st.info(st.session_state)
 
         if data != None:
-            st.info("Inside if data cond")
             if st.session_state["id"] == None:
                 st.session_state["id"] = data
                 
@@ -80,7 +72,6 @@ def capture():
                 needed = {"id" : st.session_state["id"], "dum" : st.session_state["dum"]}
                 del st.session_state["id"]
                 del st.session_state["dum"]
-                st.info(needed)
                 return needed
             elif "dup" in data and st.session_state["id"] == None:
                 st.error("Please folllow the sequence\n    1.Scan Person's QR\n    2.Scan ID Card QR")
@@ -90,7 +81,7 @@ def capture():
                 
 def app():
     st.title("QR Code Scanner")
-    st.text("Scan the person's QR code")   
+    st.subheader("Scan the person's QR code")   
     cap1 = capture()
     if cap1 != None:
         cap_id = cap1["id"]
