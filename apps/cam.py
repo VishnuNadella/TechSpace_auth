@@ -4,7 +4,6 @@ from pyzbar.pyzbar import decode
 from pymongo import *
 import dns
 
-from time import sleep
 
 usn = st.secrets["db_username"]
 pwd = st.secrets["db_password"]
@@ -14,18 +13,19 @@ def decoder(image):
     qrCode = decode(image) #decoded QR code
     for obj in qrCode:
         data = obj.data.decode("utf-8")
-        print(data)
 def capture():
     message = st.empty()
-
     # Camera Input Setup
     startcam = st.camera_input('Scan QR Code')
-
     if startcam:
         img = Image.open(startcam)
-        print("Final Result", decoder(img))
-
+        data = decoder(img)
+def check():
+    pass
 def app():
-    st.title("Initiate Camera")
-    st.subheader("Switch to Back Camera")
-    capture()
+    st.title("Events Page")
+    select_event = st.selectbox("Switch Conditions and try", ["Select an Event", "1", "2", "3"])
+    if select_event != "Select an Event":
+        res = capture()
+        st.info(res)
+        check()
