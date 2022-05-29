@@ -59,8 +59,10 @@ def capture():
     startcam = st.camera_input('Scan QR Code')
 
     if startcam:
+        st.info("Inside capture")
         img = Image.open(startcam)
         data = decoder(img)
+        st.info(data)
         if "id" not in st.session_state:
             st.session_state["id"] = None
         if "dum" not in st.session_state:
@@ -71,15 +73,13 @@ def capture():
             st.info("Inside if data cond")
             if st.session_state["id"] == None:
                 st.session_state["id"] = data
-                print("for id", st.session_state)
+                
             elif "dup" in data and st.session_state["id"] != None:
-                print("In elif dum")
                 st.session_state["dum"] = data
-                print("for dum", st.session_state)
                 needed = {"id" : st.session_state["id"], "dum" : st.session_state["dum"]}
                 del st.session_state["id"]
                 del st.session_state["dum"]
-                print("needed", needed)
+                st.info(needed)
                 return needed
             elif "dup" in data and st.session_state["id"] == None:
                 st.error("Please folllow the sequence\n    1.Scan Person's QR\n    2.Scan ID Card QR")
