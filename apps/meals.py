@@ -37,10 +37,11 @@ def mark(id):
         print("req is None")
 
 def decoder(image):
+    st.info("Inside decoder function")
     qrCode = decode(image) #decoded QR code
     for obj in qrCode:
         data = obj.data.decode("utf-8")
-        print(data)
+        st.success(data)
 def capture():
     message = st.empty()
 
@@ -48,6 +49,7 @@ def capture():
     startcam = st.camera_input('Scan QR Code')
 
     if startcam:
+        st.info("Inside startcam condition")
         img = Image.open(startcam)
         print("Final Result", decoder(img))
 
