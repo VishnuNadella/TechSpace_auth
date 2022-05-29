@@ -11,7 +11,9 @@ import pandas as pd
 from st_aggrid import AgGrid, GridUpdateMode
 from st_aggrid.grid_options_builder import GridOptionsBuilder
 
-cluster = MongoClient(f"mongodb+srv://VishnuNad:{psd}@cluster01.0kzr6.mongodb.net/test")
+usn = st.secrets["db_username"]
+pwd = st.secrets["db_password"]
+cluster = MongoClient(f"mongodb+srv://{usn}:{pwd}@cluster01.0kzr6.mongodb.net/?retryWrites=true&w=majority")
 
 db = cluster["test_TechSpace"]
 
