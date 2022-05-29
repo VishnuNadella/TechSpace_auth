@@ -42,6 +42,7 @@ def decoder(image):
     for obj in qrCode:
         data = obj.data.decode("utf-8")
         st.success(data)
+        mark(data)
 def capture():
     message = st.empty()
 
