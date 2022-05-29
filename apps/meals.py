@@ -22,7 +22,6 @@ def mark(id):
         req = i
     if req != None:
         mls = req["meals"]
-        st.info(mls)
         cnt = 5
         for i in range(1, 6):
             stri = f"meal{i}"
@@ -34,8 +33,7 @@ def mark(id):
                 break
         else:
             st.error("You have exhausted all your coupons")
-    else:
-        print("req is None")
+
 
 def decoder(image):
     st.info("Inside decoder function")
