@@ -22,7 +22,7 @@ def mark(id):
         req = i
     if req != None:
         mls = req["meals"]
-        st.info("Meals", mls)
+        st.info(mls)
         cnt = 5
         for i in range(1, 6):
             stri = f"meal{i}"
