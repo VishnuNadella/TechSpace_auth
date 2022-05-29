@@ -84,7 +84,10 @@ def capture():
                 return needed
             elif "dup" in data and st.session_state["id"] == None:
                 st.error("Please folllow the sequence\n    1.Scan Person's QR\n    2.Scan ID Card QR")
-
+    else:
+        st.info("Scan Again")
+                
+                
 def app():
     st.title("QR Code Scanner")
     st.text("Scan the person's QR code")   
