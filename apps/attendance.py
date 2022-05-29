@@ -53,6 +53,7 @@ def decoder(image):
             return data
 
 def capture():
+    st.info("Scanning...")
     message = st.empty()
 
     # Camera Input Setup
