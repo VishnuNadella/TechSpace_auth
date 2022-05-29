@@ -17,7 +17,7 @@ class router:
         selected = option_menu(
             menu_title = None,
             options = lst,
-            icons = ["None", "None", "None", "None", "None", "None"],
+            icons = ["None", "None", "None", "None", "None", "None", "None"],
             default_index = 0, 
             orientation = "horizontal",
         )
