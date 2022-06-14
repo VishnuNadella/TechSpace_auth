@@ -30,7 +30,7 @@ st.sidebar.markdown(
     """<div style="text-align:center"><strong>e-DAM</strong><br><br></div>""", unsafe_allow_html=True)
 
 st.sidebar.markdown(
-    '''<br><br><div style="text-align: center"><small>Developed by TechSpace'22 Backend Team | May 2022 </small></div>''', unsafe_allow_html=True)
+    '''<br><br><div style="text-align: center"><small>Developed by Vishnu Nadella for TechSpace'22 | May 2022 </small></div>''', unsafe_allow_html=True)
 
 
 app.add_app("home", home.app)
