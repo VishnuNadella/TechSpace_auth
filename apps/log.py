@@ -124,9 +124,16 @@ def app():
   "attend": False,
   "dum_id": None
   }
+import traceback
+    
     btn = st.button("Submit")
     if btn and t_nme != None:
-      collection.insert_one(fin)
-      st.success("Successfully Added")
+        try:
+            result = collection.insert_one(fin) # insert the dummy object test is not working
+            print (result.inserted_id)
+        except Exception:
+            traceback.print_exc()
+      
+        st.success("Successfully Added")
     elif btn and t_nme == None and cnd:
-      st.error("Team Limit Exceeded")
+        st.error("Team Limit Exceeded")
