@@ -130,9 +130,9 @@ btn = st.button("Submit")
 if btn and t_nme != None:
   try:
     result = collection.insert_one(fin) # insert the dummy object test is not working
-    print (result.inserted_id)
-  except Exception:
-    traceback.print_exc()
+    st.success(result)
+  except Exception as e:
+    st.error(e)
 
     st.success("Successfully Added")
 elif btn and t_nme == None and cnd:
