@@ -124,7 +124,6 @@ def app():
   "attend": False,
   "dum_id": None
   }
-import traceback
     
 btn = st.button("Submit")
 if btn and t_nme != None:
